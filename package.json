@@ -1,0 +1,40 @@
+{
+  "name": "wdio-tests",
+  "version": "0.0.1",
+  "description": "WebDriverIO Appium Tests",
+  "main": "wdio.conf.js",
+  "dependencies": {
+    "appium": "^1.8.1",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "mochawesome-report-generator": "^2.3.2",
+    "wdio-appium-service": "^0.2.3",
+    "wdio-mocha-framework": "^0.6.2",
+    "wdio-mochawesome-reporter": "^1.3.0",
+    "wdio-spec-reporter": "^0.1.5",
+    "webdriverio": "^4.13.1"
+  },
+  "devDependencies": {
+    "appium-controller": "^1.1.6"
+  },
+  "scripts": {
+    "test": "wdio wdio.conf.js",
+    "stop": "appium-controller --stop -h '127.0.0.1' -p 4723",
+    "generateMochawesome":"marge reports/report.json --reportTitle 'Test Results'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulmr/wdio-tests.git"
+  },
+  "keywords": [
+    "webdriverio",
+    "appium",
+    "wdio"
+  ],
+  "author": "Rahul RAUT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rahulmr/wdio-tests/issues"
+  },
+  "homepage": "https://github.com/rahulmr/wdio-tests#readme"
+}
