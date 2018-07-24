@@ -45,11 +45,11 @@ exports.config = {
         {
             browserName: '',
             appiumVersion: '1.8.1',
-            deviceName: 'Infinix X573',
+            deviceName: 'Android Emulator',
             deviceOrientation: 'portrait',
             platformVersion: '8.0.0',
             platformName: 'Android',
-            app: 'https://github.com/appium/sample-code/blob/master/sample-code/apps/ApiDemos/bin/ApiDemos-debug.apk?raw=true',
+            app: 'https://github.com/rahulmr/wdio-tests/blob/master/ApiDemos-debug.apk?raw=true',
             waitforTimeout: 30000,
             commandTimeout: 30000
         }
@@ -85,10 +85,10 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'http://webdriver.io',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 25000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
@@ -121,18 +121,17 @@ exports.config = {
     // commands. Instead, they hook themselves up into the test process.
     services: ['appium'],
     appium: {
-        waitStartTime: 6000,
-        command: 'appium.cmd',
-        logFileName: 'appium181.log',
+        waitStartTime: 60000,
+        command: /^win/i.test(process.platform) ? 'appium.cmd' : 'appium',
         args: {
             address: '127.0.0.1',
             port: 4723,
-            commandTimeout: '7200',
+            commandTimeout: '9200',
             sessionOverride: true,
             debugLogSpacing: true
         }
     },
-    //
+    
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/guide/testrunner/frameworks.html
@@ -147,11 +146,7 @@ exports.config = {
     reporters: ['spec','mochawesome'],
     reporterOptions: {
         outputDir: './reports/', //json file will be written to this directory
-        mochawesome_filename: 'report.json' //will default to wdiomochawesome.json if no name is provided
-    },
-    mochawesomeOpts: {
-        includeScreenshots:true,
-        screenshotUseRelativePath:true
+        mochawesome_filename: 'results.json' //will default to wdiomochawesome.json if no name is provided
     },
     
     //
