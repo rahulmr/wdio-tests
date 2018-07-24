@@ -7,7 +7,9 @@
     "appium": "^1.8.1",
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
+    "mochawesome": "^2.3.1",
     "mochawesome-report-generator": "^2.3.2",
+    "rimraf": "^2.6.2",
     "wdio-appium-service": "^0.2.3",
     "wdio-mocha-framework": "^0.6.2",
     "wdio-mochawesome-reporter": "^1.3.0",
@@ -15,12 +17,17 @@
     "webdriverio": "^4.13.1"
   },
   "devDependencies": {
-    "appium-controller": "^1.1.6"
+    "appium-controller": "^1.1.6",
+    "http-server": "^0.11.1"
   },
   "scripts": {
+    "nothing": "rimraf reports results mochawesome-report logs appium.log",
     "test": "wdio wdio.conf.js",
+    "posttest": "npm run report && npm run stop",
     "stop": "appium-controller --stop -h '127.0.0.1' -p 4723",
-    "generateMochawesome":"marge reports/report.json --reportTitle 'Test Results'"
+    "start": "appium-controller --start -h '127.0.0.1' -p 4723",
+    "report": "marge reports/results.json -f index.html -o reports -t TestResults -p AndroidTests --code -i --autoOpen --charts",
+    "serve-report": "http-server reports"
   },
   "repository": {
     "type": "git",
