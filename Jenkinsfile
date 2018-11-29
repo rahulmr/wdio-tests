@@ -5,7 +5,12 @@ pipeline {
   stages {
     stage('install') {
       steps {
-        npm install
+        bat 'npm install'
+      }
+    }
+    stage('test') {
+      steps {
+        bat 'echo npm test'
       }
     }
   }
