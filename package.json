@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "appium-controller": "^1.1.6",
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.2"
   },
   "scripts": {
     "nothing": "rimraf reports results mochawesome-report logs appium.log",
