@@ -4,7 +4,7 @@
   "description": "WebDriverIO Appium Tests",
   "main": "wdio.conf.js",
   "dependencies": {
-    "appium": "^1.22.3",
+    "appium": "^3.1.2",
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
     "mochawesome": "^2.3.1",
